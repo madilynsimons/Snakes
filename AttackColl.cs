@@ -12,44 +12,44 @@ public class AttackColl
 
 	readonly string DEFAULTFILELINK = "AttackLibrary.txt";
 
-	string fileLink;
-	TextReader reader;
-	Attack[] attackLibrary;
+	string FileLink;
+	TextReader Reader;
+	Attack[] AttackLibrary;
 
-	int numOfAttacks;
+	int NumOfAttacks;
 
 	public AttackColl()
 	{
-		fileLink = DEFAULTFILELINK;
-		init();
+		FileLink = DEFAULTFILELINK;
+		Init();
 	}
 
-	public AttackColl(string fileLink)
+	public AttackColl(string FileLink)
 	{
-		this.fileLink = fileLink;
-		init();
+		this.FileLink = FileLink;
+		Init();
 	}
 
-	void init()
+	void Init()
 	{
-		reader = File.OpenText(fileLink);
-		numOfAttacks = int.Parse(reader.ReadLine());
-		attackLibrary = new Attack[numOfAttacks];
+		Reader = File.OpenText(FileLink);
+		NumOfAttacks = int.Parse(Reader.ReadLine());
+		AttackLibrary = new Attack[NumOfAttacks];
 
-		string input;
+		string Input;
 		int x = 0;
-		while((input = reader.ReadLine()) != null)
+		while((Input = Reader.ReadLine()) != null)
 		{
-			attackLibrary[x] = new Attack(input);
+			AttackLibrary[x] = new Attack(Input);
 			x++;
 		}
 	}
 
 	void Print()
 	{
-		for(int x = 0; x < numOfAttacks; x++)
+		for(int x = 0; x < NumOfAttacks; x++)
 		{
-			attackLibrary[x].Print();
+			AttackLibrary[x].Print();
 		}
 	}
 }

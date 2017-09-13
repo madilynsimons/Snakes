@@ -10,7 +10,7 @@ public class Character
 		 */
 	}
 
-	void talk()
+	void Talk()
 	{
 		/**
 		 *  TODO

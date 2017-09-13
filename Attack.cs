@@ -9,83 +9,83 @@
  	readonly string DEFAULTNAME = null;
  	readonly Size DEFAULTSIZE = Size.ONE;
 
- 	int id;
- 	string name;
- 	Size size;
- 	int maxPP, currentPP;
+ 	int Id;
+ 	string Name;
+ 	Size Slots;
+ 	int MaxPP, CurrentPP;
 
  	/**  Constructors **/
  	public Attack()
  	{
- 		id = DEFAULTID;
- 		name = DEFAULTNAME;
- 		maxPP = DEFAULTPP;
- 		size = DEFAULTSIZE;
+ 		Id = DEFAULTID;
+ 		Name = DEFAULTNAME;
+ 		MaxPP = DEFAULTPP;
+ 		Slots = DEFAULTSIZE;
 
- 		init();
+ 		Init();
   	}
 
  	public Attack(Attack a)
  	{
- 		id = a.id;
- 		name = a.name;
- 		maxPP = a.maxPP;
- 		size = a.size;
+ 		Id = a.Id;
+ 		Name = a.Name;
+ 		MaxPP = a.MaxPP;
+ 		Slots = a.Slots;
 
- 		init();
+ 		Init();
  	}
 
- 	public Attack(string input)
+ 	public Attack(string Input)
  	{
- 		string[] space = new string[]{" "};
- 		string[] parsed;
+ 		string[] Space = new string[]{" "};
+ 		string[] Parsed;
 
- 		parsed = input.Split(space, StringSplitOptions.None);
+ 		Parsed = Input.Split(Space, StringSplitOptions.None);
 
- 		id = int.Parse(parsed[0]);
- 		name = parsed[1];
- 		maxPP = int.Parse(parsed[2]);
+ 		Id = int.Parse(Parsed[0]);
+ 		Name = Parsed[1];
+ 		MaxPP = int.Parse(Parsed[2]);
 
- 		int size = int.Parse(parsed[3]);
+ 		int Slots = int.Parse(Parsed[3]);
 
- 		switch(size)
+ 		switch(Slots)
  		{
  			case 1:
- 				this.size = Size.ONE;
+ 				this.Slots = Size.ONE;
  				break;
  			case 2:
- 			 	this.size = Size.TWO;
+ 			 	this.Slots = Size.TWO;
  				break;
  			case 3:
- 				this.size = Size.THREE;
+ 				this.Slots = Size.THREE;
  				break;
  			case 4:
- 				this.size = Size.FOUR;
+ 				this.Slots = Size.FOUR;
  				break;
  			case 6:
- 				this.size = Size.SIX;
+ 				this.Slots = Size.SIX;
  				break;
  			default:
- 				this.size = Size.NULL;
+ 				this.Slots = Size.NULL;
  				break;
  		}
 
- 		init();
+ 		Init();
 
  	}
 
- 	void init()
+ 	void Init()
  	{
- 		currentPP = maxPP;
+ 		CurrentPP = MaxPP;
  	}
 
  	public void Print()
  	{
  		Console.WriteLine("********************");
- 		Console.WriteLine("ID = " + id);
- 		Console.WriteLine("NAME = " + name);
- 		Console.WriteLine("PP = " + maxPP);
- 		Console.WriteLine("SIZE = " + size);
+ 		Console.WriteLine("ID = " + Id);
+ 		Console.WriteLine("NAME = " + Name);
+ 		Console.WriteLine("PP = " + MaxPP);
+ 		Console.WriteLine("SLOTS = " + Slots);
  		Console.WriteLine("********************");
  	}
 
