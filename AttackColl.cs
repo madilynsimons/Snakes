@@ -7,6 +7,7 @@ public class AttackColl
 	public static void Main()
 	{
 		AttackColl a = new AttackColl();
+		a.Print();
 	}
 
 	readonly string DEFAULTFILELINK = "AttackLibrary.txt";
@@ -14,6 +15,8 @@ public class AttackColl
 	string fileLink;
 	TextReader reader;
 	Attack[] attackLibrary;
+
+	int numOfAttacks;
 
 	public AttackColl()
 	{
@@ -30,16 +33,23 @@ public class AttackColl
 	void init()
 	{
 		reader = File.OpenText(fileLink);
-		int numOfAttacks = int.Parse(reader.ReadLine());
+		numOfAttacks = int.Parse(reader.ReadLine());
 		attackLibrary = new Attack[numOfAttacks];
 
 		string input;
 		int x = 0;
 		while((input = reader.ReadLine()) != null)
 		{
-			attackLibrary[x] = new Attack();
-			attackLibrary[x] = Attack.ParseAttack(input);
+			attackLibrary[x] = new Attack(input);
 			x++;
+		}
+	}
+
+	void Print()
+	{
+		for(int x = 0; x < numOfAttacks; x++)
+		{
+			attackLibrary[x].Print();
 		}
 	}
 }
