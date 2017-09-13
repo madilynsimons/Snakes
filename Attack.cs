@@ -48,24 +48,26 @@
 
  		int size = int.Parse(parsed[3]);
 
- 		//  TODO -- test this
  		switch(size)
  		{
  			case 1:
  				this.size = Size.ONE;
- 			break;
+ 				break;
  			case 2:
  			 	this.size = Size.TWO;
- 			break;
+ 				break;
  			case 3:
  				this.size = Size.THREE;
- 			break;
+ 				break;
  			case 4:
  				this.size = Size.FOUR;
- 			break;
+ 				break;
  			case 6:
  				this.size = Size.SIX;
- 			break;
+ 				break;
+ 			default:
+ 				this.size = Size.NULL;
+ 				break;
  		}
 
  		init();
