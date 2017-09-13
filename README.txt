@@ -4,6 +4,9 @@ Snakes
 AttackLibrary.txt holds a list of every possible Attack
 in the game.  The parameters exist as follows:
 
+The first line will be the number of possible attacks.
+Make sure to keep this updated with every new attack.
+
 id    -- some non-zero integer used to identify the Attack
 name  -- what the Attack is called
 maxPP -- some non-zero integer representing the max PP of

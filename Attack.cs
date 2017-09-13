@@ -20,8 +20,9 @@
  		id = DEFAULTID;
  		name = DEFAULTNAME;
  		maxPP = DEFAULTPP;
- 		currentPP = maxPP;
  		size = DEFAULTSIZE;
+
+ 		init();
   	}
 
  	public Attack(Attack a)
@@ -29,8 +30,20 @@
  		id = a.id;
  		name = a.name;
  		maxPP = a.maxPP;
- 		currentPP = maxPP;
  		size = a.size;
+
+ 		init();
+ 	}
+
+ 	void init()
+ 	{
+ 		currentPP = maxPP;
+ 	}
+
+ 	public static Attack ParseAttack(string input)
+ 	{
+ 		//  TODO
+ 		return new Attack();
  	}
 
  }
