@@ -1,8 +1,9 @@
 using System;
 
-public interface Fighter
+public class Fighter : Character
 {
-	AttackColl myAttacks;
+	AttackColl Attacks;
+
 	void Fight();
 	//  OPTIONAL -- text file of available attacks
 }

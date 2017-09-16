@@ -2,12 +2,11 @@ using System;
 
 public class Character
 {
+	string Name;
 
 	public Character()
 	{
-		/**
-		 *  TODO
-		 */
+		Name = null;
 	}
 
 	void Talk()

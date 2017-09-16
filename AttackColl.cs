@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 public class AttackColl
 {
@@ -14,9 +15,17 @@ public class AttackColl
 
 	string FileLink;
 	TextReader Reader;
+
+	//  All possible attacks
+	//  Not necessarily all attacks that the specific character
+	//  can do
 	Attack[] AttackLibrary;
 
+	//  Number attacks in attack library
 	int NumOfAttacks;
+
+	//  links to attacks owned by specific character
+	List<Attack> ActiceAttacks;
 
 	public AttackColl()
 	{
@@ -43,6 +52,11 @@ public class AttackColl
 			AttackLibrary[x] = new Attack(Input);
 			x++;
 		}
+	}
+
+	void AddAttack(int Link)
+	{
+
 	}
 
 	void Print()
