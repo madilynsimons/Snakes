@@ -5,12 +5,6 @@ using System.Collections.Generic;
 public class AttackColl
 {
 
-	public static void Main()
-	{
-		AttackColl a = new AttackColl();
-		a.Print();
-	}
-
 	readonly string DEFAULTFILELINK = "AttackLibrary.txt";
 	readonly int DEFAULTTOTALSLOTS = 12;
 
@@ -63,6 +57,13 @@ public class AttackColl
 		Init();
 	}
 
+	public AttackColl(string FileLink, int TotalSlots)
+	{
+		this.TotalSlots = TotalSlots;
+		this.FileLink = FileLink;
+		Init();
+	}
+
 	public void SetFileLink(string FileLink)
 	{
 		this.FileLink = FileLink;
@@ -97,7 +98,7 @@ public class AttackColl
 		SetFileLink(FileLink);
 	}
 
-	void AddAttack(int Link)
+	public void AddAttack(int Link)
 	{
 		Attack a = AttackLibrary[Link];
 		int aSize = (int) a.Slots;
@@ -127,10 +128,26 @@ public class AttackColl
 		}
 	}
 
-	void AddAttack(Attack a)
+	public void AddAttack(Attack a)
 	{
 		int Link = a.Id;
 		AddAttack(Link);
+	}
+
+	public void RemoveAttack(Attack a)
+	{
+		int Link = a.Id;
+		RemoveAttack(Link);
+	}
+
+	public void RemoveAttack(int Link)
+	{
+		if(ActiveAttacks.Contains(Link))
+		{
+			int aSize = (int) AttackLibrary[Link].Slots;
+			OccupiedSlots -= aSize;
+			ActiveAttacks.Remove(Link);
+		}
 	}
 
 	void Print()

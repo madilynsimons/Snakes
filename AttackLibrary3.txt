@@ -1,0 +1,11 @@
+10
+1 AttackA 10 1
+2 AttackB 11 2
+3 AttackC 12 3
+4 AttackD 13 4
+5 AttackE 14 6
+6 AttackF 15 1
+7 AttackG 16 2
+8 AttackH 17 3
+9 AttackI 18 4
+10 AttackJ 19 6
