@@ -9,10 +9,10 @@
  	readonly string DEFAULTNAME = null;
  	readonly Size DEFAULTSIZE = Size.ONE;
 
- 	int Id;
- 	string Name;
- 	Size Slots;
- 	int MaxPP, CurrentPP;
+ 	public int Id;
+ 	public string Name;
+ 	public Size Slots;
+ 	public int MaxPP, CurrentPP;
 
  	/**  Constructors **/
  	public Attack()

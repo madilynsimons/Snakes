@@ -12,6 +12,7 @@ public class AttackColl
 	}
 
 	readonly string DEFAULTFILELINK = "AttackLibrary.txt";
+	readonly int DEFAULTTOTALSLOTS = 12;
 
 	string FileLink;
 	TextReader Reader;
@@ -25,25 +26,50 @@ public class AttackColl
 	int NumOfAttacks;
 
 	//  links to attacks owned by specific character
-	List<Attack> ActiceAttacks;
+	List<int> ActiveAttacks;
+
+	int TotalSlots;
+	int OccupiedSlots;
 
 	public AttackColl()
 	{
+		TotalSlots = DEFAULTTOTALSLOTS;
 		FileLink = DEFAULTFILELINK;
 		Init();
 	}
 
 	public AttackColl(string FileLink)
 	{
+		TotalSlots = DEFAULTTOTALSLOTS;
 		this.FileLink = FileLink;
 		Init();
 	}
 
-	void Init()
+	public AttackColl(int TotalSlots)
 	{
+		this.TotalSlots = TotalSlots;
+		FileLink = DEFAULTFILELINK;
+		Init();
+	}
+
+	/**
+	 *  This is the ideal constructor.
+	 *  Please use it whenever possible.
+	 */ 
+	public AttackColl(int TotalSlots, string FileLink)
+	{
+		this.TotalSlots = TotalSlots;
+		this.FileLink = FileLink;
+		Init();
+	}
+
+	public void SetFileLink(string FileLink)
+	{
+		this.FileLink = FileLink;
 		Reader = File.OpenText(FileLink);
 		NumOfAttacks = int.Parse(Reader.ReadLine());
 		AttackLibrary = new Attack[NumOfAttacks];
+		ActiveAttacks = new List<int>();
 
 		string Input;
 		int x = 0;
@@ -52,11 +78,59 @@ public class AttackColl
 			AttackLibrary[x] = new Attack(Input);
 			x++;
 		}
+		Reader.Close();
+	}
+
+	public void SetSlots(int TotalSlots)
+	{
+		this.TotalSlots = TotalSlots;
+	}
+
+	public void AddSlots(int Slots)
+	{
+		TotalSlots += Slots;
+	}
+
+	void Init()
+	{
+		OccupiedSlots = 0;
+		SetFileLink(FileLink);
 	}
 
 	void AddAttack(int Link)
 	{
+		Attack a = AttackLibrary[Link];
+		int aSize = (int) a.Slots;
 
+		if(OccupiedSlots + aSize > TotalSlots)
+		{
+			/**
+			 *  TODO
+			 *  There isn't enough room in your slots to hold
+			 *  the attack given by the link
+			 */
+		}
+		else
+		{
+			if(ActiveAttacks.Contains(Link))
+			{
+				/**
+				 *  TODO
+				 *  The attack is already in your attack collection
+				 */
+			}
+			else
+			{
+				ActiveAttacks.Add(Link);
+				OccupiedSlots += aSize;
+			}
+		}
+	}
+
+	void AddAttack(Attack a)
+	{
+		int Link = a.Id;
+		AddAttack(Link);
 	}
 
 	void Print()
