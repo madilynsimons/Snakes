@@ -29,10 +29,6 @@ public class Walker : MonoBehaviour
 		position = new Vector2();
 		trail = new Queue<Point>();
 		rg = GetComponent<Rigidbody2D> (); 
-			
-		for (int x = 0; x < 100; x++) {
-			AddToTrail (1, 1);
-		}
 	}
 
 	public void AddToTrail(int x, int y)
