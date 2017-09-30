@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class AttackColl
 {
 
-	readonly string DEFAULTFILELINK = "AttackLibrary.txt";
+	readonly string DEFAULTFILELINK = "AttackLibraries/AttackLibrary.txt";
 	readonly int DEFAULTTOTALSLOTS = 12;
 
 	string FileLink;
