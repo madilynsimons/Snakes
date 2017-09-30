@@ -2,20 +2,16 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Player : MonoBehavior
+public class Player : Walker
 {
-	Walker walker;
-
-	void Start()
-	{
-		walker = new Walker();
-	}
+	public float speed;
 
 	void Update()
 	{
-		int hor = Input.GetAxisRaw("Horizontal");
-		int vert = Input.GetAxisRaw("Vertical");
-		walker.AddToTrail(hor, ver);
+		float hor = Input.GetAxisRaw ("Horizontal");
+		float vert = Input.GetAxisRaw ("Vertical");
+		AddToTrail (speed * hor, speed * vert);
+
 	}
 
 }
