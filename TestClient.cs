@@ -13,6 +13,6 @@ public class TestClient
 		Fighter Chris = new Fighter(10, Link3);
 		Fighter Triston = new Fighter(15, Link2);
 
-		Chris.AddAttack()
+
 	}
 }

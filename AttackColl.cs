@@ -101,7 +101,7 @@ public class AttackColl
 	public void AddAttack(int Link)
 	{
 		Attack a = AttackLibrary[Link];
-		int aSize = (int) a.Slots;
+		int aSize = a.Slots;
 
 		if(OccupiedSlots + aSize > TotalSlots)
 		{
@@ -150,7 +150,7 @@ public class AttackColl
 		}
 	}
 
-	void Print()
+	public void Print()
 	{
 		for(int x = 0; x < NumOfAttacks; x++)
 		{

@@ -7,11 +7,11 @@
  	readonly int DEFAULTID = -1;
  	readonly int DEFAULTPP = 20;
  	readonly string DEFAULTNAME = null;
- 	readonly Size DEFAULTSIZE = Size.ONE;
+	readonly int DEFAULTSIZE = 1;
 
  	public int Id;
  	public string Name;
- 	public Size Slots;
+ 	public int Slots;
  	public int MaxPP, CurrentPP;
 
  	/**  Constructors **/
@@ -46,29 +46,7 @@
  		Name = Parsed[1];
  		MaxPP = int.Parse(Parsed[2]);
 
- 		int Slots = int.Parse(Parsed[3]);
-
- 		switch(Slots)
- 		{
- 			case 1:
- 				this.Slots = Size.ONE;
- 				break;
- 			case 2:
- 			 	this.Slots = Size.TWO;
- 				break;
- 			case 3:
- 				this.Slots = Size.THREE;
- 				break;
- 			case 4:
- 				this.Slots = Size.FOUR;
- 				break;
- 			case 6:
- 				this.Slots = Size.SIX;
- 				break;
- 			default:
- 				this.Slots = Size.NULL;
- 				break;
- 		}
+ 		Slots = int.Parse(Parsed[3]);
 
  		Init();
 

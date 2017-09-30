@@ -11,22 +11,22 @@ public class Fighter : Character
 
 	public Fighter(string FileLink)
 	{
-		Attacks = new Attack(FileLink);
+		Attacks = new AttackColl(FileLink);
 	}
 
 	public Fighter(int TotalSlots)
 	{
-		Attack = new Attack(TotalSlots);
+		Attacks = new AttackColl(TotalSlots);
 	}
 
 	public Fighter(int TotalSlots, string FileLink)
 	{
-		Attack = new Attack(TotalSlots, FileLink);
+		Attacks = new AttackColl(TotalSlots, FileLink);
 	}
 
 	public Fighter(string FileLink, int TotalSlots)
 	{
-		Attack = new Attack(FileLink, TotalSlots);
+		Attacks = new AttackColl(FileLink, TotalSlots);
 	}
 
 	public void SetFileLink(string FileLink)
